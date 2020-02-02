@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// redux
+import { Provider } from 'react-redux';
+import store        from './store/store';
+
+// components
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Routes from './components/layout/Routes';
+
+const App = () => {
+
+    return(
+        <Provider store={ store }>
+
+            <Fragment>
+                <Header /> 
+                    
+                    <div className="container-fluid">
+                        <Routes />
+                    </div>
+
+                <Footer />
+            </Fragment>
+
+        </Provider>
+    );
+
 }
 
 export default App;
